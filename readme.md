@@ -4,7 +4,7 @@
 
 En este ejercicio, crearemos una aplicación simple de administración de productos usando JavaScript. Usaremos los test unitarios para asegurarnos de que nuestro código funcione según lo esperado. Para nuestro testing usaremos Jest.
 
-Aprovechando la práctica de desarrollo guiado por test (TDD), primero escribiremos los test unitarios y luego escribiremos el código para que los test pasen. Podéis ir teesteando las funciones a medida que las vayáis implementando o bien escribir todos los test y luego implementar las funciones.
+Aprovechando la práctica de desarrollo guiado por test (TDD), primero escribiremos los test unitarios y luego escribiremos el código para que los test pasen. Podéis ir testeando las funciones a medida que las vayáis implementando o bien escribir todos los test y luego implementar las funciones.
 
 El objetivo es aprender a escribir test unitarios para funciones simples, por lo que el modo de implementación de las funciones es libre, siempre y cuando se cumplan los requisitos de los test.
 
@@ -48,7 +48,7 @@ npm init -y
 npm i jest
 ```
 
-Piensa si jest, o revisa la documentación, la usaremos solo en desarrollo o producción
+Piensa si jest, o revisa la documentación, la usaremos solo en desarrollo o producción.
 
 Luego, agregamos la siguiente línea en tu archivo `package.json` en la sección "scripts":
 

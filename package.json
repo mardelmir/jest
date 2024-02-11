@@ -1,0 +1,15 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "description": "Creación de aplicación simple de administración de productos usando JavaScript. Usaremos Jest para realizar test unitarios y asegurarnos de que el código funcione según lo esperado",
+  "main": "product.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0" 
+  }
+}
