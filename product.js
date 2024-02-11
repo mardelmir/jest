@@ -1,11 +1,9 @@
 let products = [];
 let id = 0;
 
-// Estas funciones NO se testean
 const resetProducts = () => { products = []; id = 0 }
 const getProducts = () => products
 
-// Testear
 function addProduct(name, price) {
     if (!name && !price) { throw new Error('Name and price of the product must be provided') }
     else if (!name && price) { throw new Error('Name of the product must be provided') }
@@ -18,7 +16,7 @@ function addProduct(name, price) {
         return products
     }
     else if (products.length >= 1) {
-        const duplicate = products.find(element => element.name === name && element.price == price)
+        const duplicate = products.find(p => p.name === name && p.price == price)
         if (duplicate === true) { throw new Error('This item already exists') }
 
         const newProduct = { id: id, name: name, price: price }
@@ -41,26 +39,30 @@ function removeProduct(id) {
 }
 
 function getProduct(id) {
+    const foundId = products.find(p => p.id == id)
+
     if (products.length === 0) {
         throw new Error('Cannot get a product from an empty list')
     } else if (products.length >= 1) {
-        const foundId = products.find(p => p.id == id)
         if (foundId === undefined) { throw new Error('Cannot get a product that does not exist') }
     }
 
-    return products.find(p => p.id === id)
+    return foundId
 }
 
 function updateProduct(id, name, price) {
+    const foundId = products.find(p => p.id == id)
+   
     if (products.length === 0) {
         throw new Error('Cannot update a product from an empty list')
     } else if (products.length >= 1) {
-        const foundId = products.find(p => p.id == id)
         if (foundId === undefined) { throw new Error('Cannot update a product that does not exist') }
+
+        foundId.name = name
+        foundId.price = price
+        return foundId
     }
 }
-
-
 
 
 module.exports = { resetProducts, addProduct, removeProduct, getProducts, getProduct, updateProduct }
