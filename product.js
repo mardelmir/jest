@@ -61,10 +61,12 @@ function updateProduct(id, name, price) {
             foundId.name = name
             foundId.price = price
             return foundId
-        } else if (name && !price) {
+        }
+        if (name && !price) {
             foundId.name = name
             return foundId
-        } else if (!name && price) {
+        }
+        if (!name && price) {
             foundId.price = price
             return foundId
         }
