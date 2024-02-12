@@ -52,15 +52,22 @@ function getProduct(id) {
 
 function updateProduct(id, name, price) {
     const foundId = products.find(p => p.id == id)
-   
+
     if (products.length === 0) {
         throw new Error('Cannot update a product from an empty list')
     } else if (products.length >= 1) {
         if (foundId === undefined) { throw new Error('Cannot update a product that does not exist') }
-
-        foundId.name = name
-        foundId.price = price
-        return foundId
+        if (name && price) {
+            foundId.name = name
+            foundId.price = price
+            return foundId
+        } else if (name && !price) {
+            foundId.name = name
+            return foundId
+        } else if (!name && price) {
+            foundId.price = price
+            return foundId
+        }
     }
 }
 

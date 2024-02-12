@@ -14,7 +14,7 @@ describe('1. addProduct', () => {
     })
     it('Should add a new product to products array', () => {
         const product = addProduct('manzana', 0.45).find(p => p.name === 'manzana' && p.price === 0.45)
-        expect(product).toMatchObject({name: 'manzana', price: 0.45})
+        expect(product).toMatchObject({ name: 'manzana', price: 0.45 })
     })
     it('Should increment id by 1 when a new product is added', () => {
         let products = getProducts()
@@ -76,5 +76,17 @@ describe('4. updateProduct', () => {
         addProduct('melón', 0.89)
         addProduct('limón', 0.37)
         expect(updateProduct(2, 'plátano', 0.53)).toMatchObject({ id: 2, name: 'plátano', price: 0.53 })
+    })
+    it('Should update only the name', () => {
+        addProduct('sandía', 0.96)
+        addProduct('melón', 0.89)
+        addProduct('limón', 0.37)
+        expect(updateProduct(2, 'plátano')).toMatchObject({ id: 2, name: 'plátano', price: 0.37 })
+    })
+    it('Should update only the price', () => {
+        addProduct('sandía', 0.96)
+        addProduct('melón', 0.89)
+        addProduct('limón', 0.37)
+        expect(updateProduct(2, 'limón', 0.67)).toMatchObject({ id: 2, name: 'limón', price: 0.67 })
     })
 })
