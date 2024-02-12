@@ -5,8 +5,8 @@ beforeEach(() => { resetProducts() });
 describe('1. addProduct', () => {
     it('Should throw an error if one or both parameters (name, price) are not defined', () => {
         expect(() => addProduct().toThrow('Name and price of the product must be provided'));
-        expect(() => addProduct('', 0.45).toThrow('Name of the product must be provided'));
-        expect(() => addProduct('manzana', '').toThrow('Price of the product must be provided'));
+        expect(() => addProduct(undefined, 0.45).toThrow('Name of the product must be provided'));
+        expect(() => addProduct('manzana', undefined).toThrow('Price of the product must be provided'));
     })
     it('Should throw an error if the product already exists in products array', () => {
         let products = [{ id: 1, name: 'manzana', price: 0.45 }]
@@ -36,11 +36,9 @@ describe('2. removeProduct', () => {
         expect(() => removeProduct(5).toThrow('Cannot remove a product that does not exist'))
     })
     it('Should remove a product with matching id', () => {
-        let products = getProducts()
         addProduct('sandía', 0.96)
         addProduct('melón', 0.89)
-        removeProduct(1)
-        expect(products.find(p => p.id === 1)).toBeUndefined()
+        expect(removeProduct(1).find(p => p.id === 1)).toBeUndefined()
     })
 })
 
